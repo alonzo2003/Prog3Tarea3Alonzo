@@ -10,6 +10,7 @@ agendas.forEach (a=> {
         <td>${a.descripcion}</td>
         <td>
             <button onclick="borrarAgenda(${a.id})">Eliminar</button>
+            <button onclick="editarAgenda(${a.id})">Editar</button>
         </td>
     </tr>
     `;
@@ -20,4 +21,8 @@ function borrarAgenda(id) {
     let nuevas = agendas.filter(a => a.id !== id);
     localStorage.setItem("agendas", JSON.stringify(nuevas));
     location.reload();
+}
+function editarAgenda(id) {
+    localStorage.setItem("agendaEditar", id);
+    window.location.href = "editar.html";
 }
